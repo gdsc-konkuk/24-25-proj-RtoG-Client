@@ -1,24 +1,24 @@
 "use client";
 import React from "react";
-import { useLiveThumbnail } from "../hooks/useLiveThumbnail";
+import useSocket from "../hooks/useSocket";
 import Image from "next/image";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 
-type LiveThumbnailProps = {
+type CCTVCardProps = {
   streamId: string;
   title?: string;
   description?: string;
   hasWildfireEvent?: boolean;
 };
 
-const LiveThumbnail: React.FC<LiveThumbnailProps> = ({
+const CCTVCard: React.FC<CCTVCardProps> = ({
   streamId,
   title = "Untitled Stream",
   description = "No description available",
   hasWildfireEvent = false,
 }) => {
-  const imageSrc = useLiveThumbnail(streamId);
+  const { imageSrc } = useSocket(streamId);
 
   return (
     <div className='flex flex-col w-64 rounded-lg overflow-hidden shadow-lg bg-white relative'>
@@ -43,7 +43,7 @@ const LiveThumbnail: React.FC<LiveThumbnailProps> = ({
         )}
       </div>
 
-      {/* Video Info Section */}
+      
       <div className='flex flex-col gap-2 p-3'>
         <h3 className='font-semibold text-sm line-clamp-1'>{title}</h3>
         <p className='text-xs text-gray-600 line-clamp-2'>{description}</p>
@@ -52,4 +52,4 @@ const LiveThumbnail: React.FC<LiveThumbnailProps> = ({
   );
 };
 
-export default LiveThumbnail;
+export default CCTVCard;
