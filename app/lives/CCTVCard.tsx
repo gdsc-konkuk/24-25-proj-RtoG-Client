@@ -1,10 +1,8 @@
 "use client";
-import useSocket from "@/hooks/useSocket";
-import Image from "next/image";
+
+import { useUrl } from "@/hooks/useUrl";
 import Link from "next/link";
 import React from "react";
-import Skeleton from "react-loading-skeleton";
-import "react-loading-skeleton/dist/skeleton.css";
 
 type CCTVCardProps = {
   streamId: string;
@@ -19,8 +17,6 @@ const CCTVCard: React.FC<CCTVCardProps> = ({
   description = "No description available",
   hasWildfireEvent = false,
 }) => {
-  const { imageSrc } = useSocket(streamId);
-
   return (
     <Link
       href={`/lives/${streamId}`}
@@ -35,16 +31,8 @@ const CCTVCard: React.FC<CCTVCardProps> = ({
 
       {/* Thumbnail/Skeleton Section */}
       <div className='w-full h-36 relative'>
-        {imageSrc ? (
-          <Image
-            src={imageSrc}
-            alt={title}
-            className='object-cover w-full h-full'
-            fill
-          />
-        ) : (
-          <Skeleton height={144} />
-        )}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={useUrl(`lives/${streamId}`)} alt={title} />
       </div>
 
       <div className='flex flex-col gap-2 p-3'>
