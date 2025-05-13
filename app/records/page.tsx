@@ -32,8 +32,8 @@ const Dashboard = () => {
     <main className='w-full h-full flex flex-col items-center gap-4 p-4'>
       {eventRecords.map((eventRecord) => (
         <CardContainer key={eventRecord.date} date={eventRecord.date}>
-          {eventRecord.events.map((event) => (
-            <RecordCard key={event.id} streamId={event.id} />
+          {eventRecord.events.map((record) => (
+            <RecordCard key={record.eventId} {...record} />
           ))}
         </CardContainer>
       ))}
