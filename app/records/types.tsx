@@ -1,10 +1,12 @@
-export interface EventRecord {
+export interface DailyRecords {
   date: string;
-  events: Event[];
+  events: Record[];
 }
 
-export interface Event {
+export interface Record {
   id: string;
   title: string;
   description: string;
+  thumbnail_url: string;
+  timestamp: string;
 }

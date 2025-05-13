@@ -1,3 +1,5 @@
+import { DailyRecords } from "@/app/records/types";
+
 const lives = [
   {
     streamId: "1",
@@ -44,35 +46,22 @@ const lives = [
   },
 ];
 
-type DailyRecord = {
-  date: string;
-  events: Record[];
-};
-
-type Record = {
-  eventId: string;
-  cctv_name: string;
-  address: string;
-  thumbnail_url: string;
-  timestamp: string;
-};
-
-const records: DailyRecord[] = [
+const records: DailyRecords[] = [
   {
     date: "2024-01-01",
     events: [
       {
-        eventId: "1",
-        cctv_name: "Record 1",
-        address: "Description 1",
-        thumbnail_url: "Description 1",
+        id: "1",
+        title: "Record 1",
+        description: "Description 1",
+        thumbnail_url: "/url/test/thumbnail.jpg",
         timestamp: "Description 1",
       },
       {
-        eventId: "2",
-        cctv_name: "Record 2",
-        address: "Description 2",
-        thumbnail_url: "Description 2",
+        id: "2",
+        title: "Record 2",
+        description: "Description 2",
+        thumbnail_url: "/url/test/thumbnail.jpg",
         timestamp: "Description 2",
       },
     ],
@@ -81,17 +70,17 @@ const records: DailyRecord[] = [
     date: "2024-01-02",
     events: [
       {
-        eventId: "3",
-        cctv_name: "Record 3",
-        address: "Description 3",
-        thumbnail_url: "Description 3",
+        id: "3",
+        title: "Record 3",
+        description: "Description 3",
+        thumbnail_url: "/url/test/thumbnail.jpg",
         timestamp: "Description 3",
       },
       {
-        eventId: "4",
-        cctv_name: "Record 4",
-        address: "Description 4",
-        thumbnail_url: "Description 4",
+        id: "4",
+        title: "Record 4",
+        description: "Description 4",
+        thumbnail_url: "/url/test/thumbnail.jpg",
         timestamp: "Description 4",
       },
     ],
@@ -100,14 +89,14 @@ const records: DailyRecord[] = [
     date: "2024-01-03",
     events: [
       {
-        eventId: "5",
-        cctv_name: "Record 5",
-        address: "Description 5",
-        thumbnail_url: "Description 5",
+        id: "5",
+        title: "Record 5",
+        description: "Description 5",
+        thumbnail_url: "/url/test/thumbnail.jpg",
         timestamp: "Description 5",
       },
     ],
   },
 ];
 
-export { lives, records, type Record, type DailyRecord };
+export { lives, records };
