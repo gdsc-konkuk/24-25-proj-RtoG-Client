@@ -3,12 +3,12 @@
 import { useEffect, useState } from "react";
 import { useUrl } from "./useUrl";
 
-type SocketResponse = {
+export type SocketResponse = {
   status: "dangerous" | "normal" | "hazardous";
   description: string;
 };
 
-const useWebSocket = (streamId: string) => {
+const useWebSocket = (streamId: string): SocketResponse | null => {
   const url = useUrl(`ws/${streamId}`);
   const [response, setResponse] = useState<SocketResponse | null>(null);
 
