@@ -1,48 +1,24 @@
 import { DailyRecords } from "@/app/records/types";
+import { Live } from "./app/lives/types";
 
-const lives = [
+const lives: Live[] = [
   {
-    streamId: "1",
-    title: "Live 1",
-    description: "Live stream 1 description",
-    hasWildfireEvent: true,
+    id: "1",
+    name: "Live 1",
+    address: "Live stream 1 description",
+    status: "hazardous",
   },
   {
-    streamId: "2",
-    title: "Live 2",
-    description: "Live stream 2 description",
+    id: "2",
+    name: "Live 2",
+    address: "Live stream 2 description",
+    status: "normal",
   },
   {
-    streamId: "3",
-    title: "Live 3",
-    description: "Live stream 3 description",
-    hasWildfireEvent: true,
-  },
-  {
-    streamId: "4",
-    title: "Live 4",
-    description: "Live stream 4 description",
-  },
-  {
-    streamId: "5",
-    title: "Live 5",
-    description: "Live stream 5 description",
-  },
-  {
-    streamId: "6",
-    title: "Live 6",
-    description: "Live stream 6 description",
-    hasWildfireEvent: true,
-  },
-  {
-    streamId: "7",
-    title: "Live 7",
-    description: "Live stream 7 description",
-  },
-  {
-    streamId: "8",
-    title: "Live 8",
-    description: "Live stream 8 description",
+    id: "3",
+    name: "Live 3",
+    address: "Live stream 3 description",
+    status: "danger",
   },
 ];
 
