@@ -1,11 +1,5 @@
+import { Live } from "@/app/lives/types";
 import { create } from "zustand";
-
-type Live = {
-  id: string;
-  name: string;
-  address: string;
-  status?: "hazardous" | "normal" | "danger";
-};
 
 type LiveStore = {
   lives: Live[];
