@@ -2,20 +2,27 @@
 
 import { useLives } from "@/hooks/lives";
 import CCTVCard from "./CCTVCard";
+import useLiveStore from "@/store/lives";
+import { useEffect } from "react";
 
 const Dashboard = () => {
-  const cctvData = useLives();
+  const cctvs = useLives();
+  const setLives = useLiveStore((state) => state.setLives);
+
+  useEffect(() => {
+    setLives(cctvs);
+  }, [cctvs, setLives]);
 
   return (
     <main className='w-full h-fit p-8 flex flex-col gap-4'>
       <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-8 w-fit mx-auto justify-items-start'>
-        {cctvData.map((cctv) => (
+        {cctvs.map(({ id, name, address, status }) => (
           <CCTVCard
-            key={cctv.streamId}
-            streamId={cctv.streamId}
-            title={cctv.title}
-            description={cctv.description}
-            hasWildfireEvent={cctv.hasWildfireEvent}
+            key={id}
+            id={id}
+            name={name}
+            address={address}
+            status={status}
           />
         ))}
       </div>

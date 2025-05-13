@@ -1,15 +1,8 @@
-export interface LiveStream {
+interface Live {
   id: string;
-  title?: string;
-  status: "active" | "inactive" | "error";
-  lastUpdated?: Date;
+  name: string;
+  address: string;
+  status?: "hazardous" | "normal" | "danger";
 }
 
-export interface LiveThumbnailProps {
-  streamId: string;
-  label?: string;
-}
-
-export interface LiveGridProps {
-  streams: LiveStream[];
-}
+export type { Live };
