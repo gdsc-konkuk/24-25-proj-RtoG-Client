@@ -4,4 +4,4 @@ const useUrl = (path: string) => {
   return `${baseUrl}/${path}`;
 };
 
-export { useUrl};
+export { useUrl };
