@@ -1,5 +1,4 @@
-const serverIp = process.env.SERVER_URL || "127.0.0.1";
-
+const serverIp = "34.22.111.163";
 const apiUrl = `http://${serverIp}:8000/api/v1`;
 const baseUrl = `http://${serverIp}:8000`;
 
