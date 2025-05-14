@@ -19,16 +19,16 @@ const RecordCard = ({ eventId, cctv_name, address, thumbnail_url }: Record) => {
     >
       {/* Thumbnail/Skeleton Section */}
       <div className='w-full h-36 relative'>
-        {thumbnailUrl && !imageError ? (
+        {imageError ? (
+          <Skeleton height={144} />
+        ) : (
           <Image
             src={thumbnailUrl}
             alt={cctv_name}
-            className='object-cover w-full h-full'
+            className='object-cover w-full h-full rounded-md'
             fill
             onError={() => setImageError(true)}
           />
-        ) : (
-          <Skeleton height={144} />
         )}
       </div>
 
