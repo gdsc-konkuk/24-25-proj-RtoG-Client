@@ -12,7 +12,7 @@ const Dashboard = () => {
       {eventRecords.map((eventRecord) => (
         <CardContainer key={eventRecord.date} date={eventRecord.date}>
           {eventRecord.events.map((record) => (
-            <RecordCard key={record.id} {...record} />
+            <RecordCard key={record.eventId} {...record} />
           ))}
         </CardContainer>
       ))}

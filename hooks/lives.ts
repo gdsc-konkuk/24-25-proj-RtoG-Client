@@ -1,10 +1,10 @@
 import { lives } from "@/constants";
-import { useUrl } from "./useUrl";
+import { useApiUrl } from "./url";
 import { useEffect, useState } from "react";
 
 const useLives = () => {
   const [data, setData] = useState(lives);
-  const url = useUrl("lives");
+  const url = useApiUrl("lives");
 
   useEffect(() => {
     const fetchData = async () => {

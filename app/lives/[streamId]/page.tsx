@@ -1,7 +1,7 @@
 "use client";
 
 import { useWebSocket } from "@/hooks/socket";
-import { useUrl } from "@/hooks/useUrl";
+import { useApiUrl } from "@/hooks/url";
 import { useParams, useRouter } from "next/navigation";
 import { IoClose } from "react-icons/io5";
 import Summary from "./Summary";
@@ -30,7 +30,7 @@ const LivePage = () => {
       <div className='w-full max-w-4xl aspect-video relative bg-black rounded-lg overflow-hidden'>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src={useUrl(`lives/${streamId}`)}
+          src={useApiUrl(`lives/${streamId}`)}
           alt='CCTV'
           className='object-cover'
         />
