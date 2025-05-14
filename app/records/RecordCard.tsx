@@ -6,9 +6,14 @@ import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import { Record } from "./types";
 import { useState } from "react";
+import { useUrl, staticBaseUrl } from "@/hooks/useUrl";
 
 const RecordCard = ({ id, title, description, thumbnail_url }: Record) => {
   const [imageError, setImageError] = useState(false);
+  const thumbnailUrlWithBase =
+    thumbnail_url
+      ? `${staticBaseUrl}/${thumbnail_url.startsWith('/') ? thumbnail_url.substring(1) : thumbnail_url}`
+      : null;
 
   return (
     <Link
@@ -17,9 +22,9 @@ const RecordCard = ({ id, title, description, thumbnail_url }: Record) => {
     >
       {/* Thumbnail/Skeleton Section */}
       <div className='w-full h-36 relative'>
-        {thumbnail_url && !imageError ? (
+        {thumbnailUrlWithBase && !imageError ? (
           <Image
-            src={thumbnail_url}
+            src={thumbnailUrlWithBase}
             alt={title}
             className='object-cover w-full h-full'
             fill
