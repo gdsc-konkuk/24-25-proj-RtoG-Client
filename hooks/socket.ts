@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useUrl } from "./useUrl";
+import { useApiUrl } from "./url";
 
 export type SocketResponse = {
   status: "dangerous" | "normal" | "hazardous";
@@ -9,7 +9,7 @@ export type SocketResponse = {
 };
 
 const useWebSocket = (streamId: string): SocketResponse | null => {
-  const url = useUrl(`ws/${streamId}`);
+  const url = useApiUrl(`ws/${streamId}`);
   const [response, setResponse] = useState<SocketResponse | null>(null);
 
   useEffect(() => {

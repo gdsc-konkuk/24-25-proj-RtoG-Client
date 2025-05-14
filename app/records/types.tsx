@@ -4,9 +4,9 @@ export interface DailyRecords {
 }
 
 export interface Record {
-  id: string;
-  title: string;
-  description: string;
+  eventId: string;
+  cctv_name: string;
+  address: string;
   thumbnail_url: string;
   timestamp: string;
 }
