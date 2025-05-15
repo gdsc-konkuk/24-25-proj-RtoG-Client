@@ -28,13 +28,23 @@ const LivePage = () => {
           onClick={() => router.back()}
         />
       </div>
-      <div className='w-full max-w-4xl aspect-video relative bg-black rounded-lg overflow-hidden'>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={useApiUrl(`lives/${streamId}`)}
-          alt='CCTV'
-          className='object-cover'
-        />
+      <div className='relative'>
+        <div className={`w-full max-w-4xl aspect-video relative bg-black rounded-lg overflow-hidden
+          ${response?.status === 'dangerous' ? 'ring-4 ring-red-500' : 
+            response?.status === 'hazardous' ? 'ring-4 ring-yellow-500' : ''}`}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={useApiUrl(`lives/${streamId}`)}
+            alt='CCTV'
+            className='object-cover'
+          />
+        </div>
+        {/* 위험 상태 알림 배지 */}
+        {(response?.status === 'dangerous' || response?.status === 'hazardous') && (
+          <div className='absolute top-4 right-4 z-10 bg-red-500 text-white text-xs px-2 py-1 rounded-lg'>
+            {response.status === 'dangerous' ? '위험' : '주의'}
+          </div>
+        )}
       </div>
 
       <Summary response={response} />
