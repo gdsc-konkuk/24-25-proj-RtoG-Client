@@ -9,4 +9,5 @@ export interface Record {
   address: string;
   thumbnail_url: string;
   timestamp: string;
+  description?: string;
 }
