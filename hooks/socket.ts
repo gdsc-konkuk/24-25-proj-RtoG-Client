@@ -9,7 +9,7 @@ export type SocketResponse = {
 };
 
 const useWebSocket = (streamId: string): SocketResponse | null => {
-  const url = useApiUrl(`ws/${streamId}`);
+  const url = useApiUrl(`ws`);
   const [response, setResponse] = useState<SocketResponse | null>(null);
 
   useEffect(() => {
@@ -17,13 +17,15 @@ const useWebSocket = (streamId: string): SocketResponse | null => {
 
     socket.onmessage = (event) => {
       const data = JSON.parse(event.data);
-      setResponse(data);
+      if (data.streamId === streamId) {
+        setResponse(data);
+      }
     };
 
     return () => {
       socket.close();
     };
-  }, [url]);
+  }, [streamId, url]);
 
   return response;
 };

@@ -1,6 +1,6 @@
-const serverIp = "34.22.111.163";
-const apiUrl = `http://${serverIp}:8000/api/v1`;
-const baseUrl = `http://${serverIp}:8000`;
+const serverIp = "rtg.bumsiku.kr";
+const apiUrl = `https://${serverIp}/api/v1`;
+const baseUrl = `https://${serverIp}`;
 
 const useApiUrl = (path: string) => {
   return `${apiUrl}/${path}`;
