@@ -1,12 +1,11 @@
 "use client";
 
-import Image from "next/image";
+import { useBaseUrl } from "@/hooks/url";
 import Link from "next/link";
+import { useState } from "react";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import { Record } from "./types";
-import { useState } from "react";
-import { useBaseUrl } from "@/hooks/url";
 
 const RecordCard = ({ eventId, cctv_name, address, thumbnail_url }: Record) => {
   const [imageError, setImageError] = useState(false);
@@ -22,11 +21,11 @@ const RecordCard = ({ eventId, cctv_name, address, thumbnail_url }: Record) => {
         {imageError ? (
           <Skeleton height={144} />
         ) : (
-          <Image
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
             src={thumbnailUrl}
             alt={cctv_name}
-            className='object-cover w-full h-full rounded-md'
-            fill
+            className='object-cover w-full h-full rounded-lg'
             onError={() => setImageError(true)}
           />
         )}
