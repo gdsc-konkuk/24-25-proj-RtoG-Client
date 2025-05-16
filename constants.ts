@@ -6,19 +6,19 @@ const lives: Live[] = [
     id: "1",
     name: "Live 1",
     address: "Live stream 1 description",
-    status: "hazardous",
+    event_type: "hazardous",
   },
   {
     id: "2",
     name: "Live 2",
     address: "Live stream 2 description",
-    status: "normal",
+    event_type: "normal",
   },
   {
     id: "3",
     name: "Live 3",
     address: "Live stream 3 description",
-    status: "danger",
+    event_type: "danger",
   },
 ];
 

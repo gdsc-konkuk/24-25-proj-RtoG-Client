@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useApiUrl } from "./url";
 
 const useRecords = () => {
-  const [data, setData] = useState<DailyRecords[]>(records);
+  const [data, setData] = useState<DailyRecords[]>([]);
   const url = useApiUrl("records");
 
   useEffect(() => {

@@ -1,27 +1,25 @@
 "use client";
 
-import { useWebSocket } from "@/hooks/socket";
+import { useLiveFor } from "@/hooks/lives";
 import { useApiUrl } from "@/hooks/url";
-import useLiveStore from "@/store/lives";
 import { useParams, useRouter } from "next/navigation";
 import { IoClose } from "react-icons/io5";
-import Summary from "./Summary";
 import Skeleton from "react-loading-skeleton";
+import Summary from "./Summary";
 
 const LivePage = () => {
   const { streamId } = useParams();
-  const response = useWebSocket(streamId as string);
+  const response = useLiveFor(streamId as string);
   const router = useRouter();
-  const live = useLiveStore((state) => state.getLive(streamId as string));
 
   return (
     <main className='w-full h-full p-8 flex flex-col items-center gap-12'>
       <div className='flex items-center gap-4 w-full'>
         <div className='text-xl font-bold w-fit break whitespace-nowrap'>
-          {live?.name ? live.name : <Skeleton width={100} height={20} />}
+          {response ? response.cctv_name : <Skeleton width={100} height={20} />}
         </div>
         <div className='text-md w-full'>
-          {live?.address ? live.address : <Skeleton width={100} height={20} />}
+          {response ? response.address : <Skeleton width={100} height={20} />}
         </div>
         <IoClose
           className='text-2xl w-fit hover:cursor-pointer'
@@ -37,7 +35,10 @@ const LivePage = () => {
         />
       </div>
 
-      <Summary response={response} />
+      <Summary
+        description={response?.description}
+        event_type={response?.event_type}
+      />
     </main>
   );
 };
