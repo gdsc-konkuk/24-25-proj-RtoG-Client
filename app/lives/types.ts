@@ -2,7 +2,16 @@ interface Live {
   id: string;
   name: string;
   address: string;
-  status?: "hazardous" | "normal" | "danger";
+  event_type?: "hazardous" | "normal" | "danger";
 }
 
-export type { Live };
+interface DetailedLive extends Live {
+  eventId: string;
+  video_id: string;
+  cctv_name: string;
+  address: string;
+  timestamp: string;
+  description: string;
+}
+
+export type { Live, DetailedLive };
